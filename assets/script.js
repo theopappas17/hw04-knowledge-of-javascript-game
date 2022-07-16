@@ -16,7 +16,7 @@ let startGame = document.querySelector("#start");
 
 const questions = [
   {
-    question: "JavaScript can be used to:",
+    question: "What can you do with JavaScript?",
     answers: {
       a: "change document text",
       b: "change text styles",
@@ -26,7 +26,7 @@ const questions = [
     correctAnswer: "d",
   },
   {
-    question: "The DOM is an example of:",
+    question: "What is the DOM?",
     answers: {
       a: "an API",
       b: "an html page",
@@ -54,6 +54,26 @@ const questions = [
       d: "b and c"
     },
     correctAnswer: "b",
+  },
+  {
+    question: "What is ECMAScript?",
+    answers: {
+      a: "another name for JavaScript",
+      b: "a standard maintained by ECMA International",
+      c: "a scripting language",
+      d: "b and c"
+    },
+    correctAnswer: "d",
+  },
+  {
+    question: "What variable declarations are allowed in JavaScript?",
+    answers: {
+      a: "var",
+      b: "const",
+      c: "let",
+      d: "a, b, and c"
+    },
+    correctAnswer: "d"
   }
 ];
 
