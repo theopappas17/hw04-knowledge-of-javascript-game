@@ -12,11 +12,9 @@ arrayIndex = 0;
 let timer;
 let timeLeft = 60;
 
-var startGame = document.querySelector("#start");
+let startGame = document.querySelector("#start");
 
-
-
-var questions = [
+const questions = [
   {
     question: "JavaScript can be used to:",
     answers: {
@@ -47,6 +45,16 @@ var questions = [
     },
     correctAnswer: "d",
   },
+  {
+    question: "What is the BOM?",
+    answers: {
+      a: "another name for the DOM",
+      b: "an important part of JavaScript",
+      c: "an important part of ECMAScript",
+      d: "b and c"
+    },
+    correctAnswer: "b",
+  }
 ];
 
 //Functions
