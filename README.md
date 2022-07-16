@@ -1,1 +1,1 @@
-# knowledge-of-javascript-game
+# bootcamp-module-4-challenge
