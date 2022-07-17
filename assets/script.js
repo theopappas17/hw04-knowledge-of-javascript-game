@@ -14,6 +14,10 @@ let timer;
 let timeLeft = 15;
 
 //Interactions
+let answerA = document.getElementById("answerA");
+let answerB = document.getElementById("answerB");
+let answerC = document.getElementById("answerC");
+let answerD = document.getElementById("answerD");
 let startGame = document.querySelector("#start");
 startGame.addEventListener("click", jsChallenge);
 
@@ -115,15 +119,12 @@ function generateIndex() {
 function generateAnswers() {
   console.log(questions[arrayIndex].answers.a)
   console.log(questions[arrayIndex].answers)
-  document.getElementById("answerA").innerText = questions[arrayIndex].answers.a;
-  document.getElementById('answerA').onclick = generateIndex;
-  document.getElementById("answerB").innerText = questions[arrayIndex].answers.b;
-  document.getElementById('answerB').onclick = generateIndex;
-  document.getElementById("answerC").innerText = questions[arrayIndex].answers.c;
-  document.getElementById('answerC').onclick = generateIndex;
-  document.getElementById("answerD").innerText = questions[arrayIndex].answers.d;
-  document.getElementById('answerD').onclick = generateIndex;
+  answerA.innerText = questions[arrayIndex].answers.a;
+  answerA.onclick = generateIndex;
+  answerB.innerText = questions[arrayIndex].answers.b;
+  answerB.onclick = generateIndex;
+  answerC.innerText = questions[arrayIndex].answers.c;
+  answerC.onclick = generateIndex;
+  answerD.innerText = questions[arrayIndex].answers.d;
+  answerD.onclick = generateIndex;
 }
-
-
-
