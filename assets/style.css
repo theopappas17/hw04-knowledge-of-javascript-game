@@ -1,10 +1,111 @@
 * {
-  border: solid;
-  border-color: black;
-  margin: 2px;
-  padding: 2px;
+  font-family: 'Tiro Kannada', serif;
+  background-color: aliceblue;
 }
 
-h1 {
-  display: inline;
+#timeLeft {
+  background-color: rgb(146, 146, 232);
+  color: yellow;
+  border-color: black 2px;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-size: 18px;
+  padding: 4px;
+}
+
+#timerDisplay {
+  background-color: yellow;
+  color: red;
+  font-size: 18px;
+  padding: 5px;
+}
+
+#highScores {
+  background-color: rgb(146, 146, 232);
+  color: yellow;
+  border-color: black 2px;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+  padding: 4px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#gameTitle {
+  text-align: center;
+  width: 50%;
+  font-size: 30px;
+  margin-bottom: 100px;
+}
+
+#start {
+  background-color: aqua;
+  border-color: black;
+  border-radius: 20px;
+  font-size: 30px;
+  padding: 8px;
+  margin: 4px;
+}
+
+#questionDisplay {
+  background-color: rgb(252, 5, 5);
+  border-color: black 2px;
+  color: white;
+  padding: 2px;
+  margin: 4px;
+}
+
+#answers {
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  margin: 4px;
+}
+
+#answerA {
+  background-color: greenyellow;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+#answerA:hover {
+  background-color: rgba(0, 0, 255, 0.339);
+}
+
+#answerB {
+  background-color: greenyellow;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+#answerB:hover {
+  background-color: rgba(0, 0, 255, 0.339);
+}
+
+#answerC {
+  background-color: greenyellow;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+#answerC:hover {
+  background-color: rgba(0, 0, 255, 0.339);
+}
+
+#answerD {
+  background-color: greenyellow;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+#answerD:hover {
+  background-color: rgba(0, 0, 255, 0.339);
 }

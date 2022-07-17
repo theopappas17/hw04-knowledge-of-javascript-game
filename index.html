@@ -5,18 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript Fundamentals Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
-    <span>Time Left<span id="timerDisplay"></span></span>
-    <h1 index="start">Start New Game</h1>
-    <h1 index="highscores">View High Scores</h1>
+    <header>
+    <span id="timeLeft">Time Left<span id="timerDisplay"></span></span>
+    <button id="highScores">View High Scores</button>
+    </header>
     <main>
-      <div id="game"></div>
-      <button id="start">Start Game</button>
-      <div>Questions</div><div id="questionDisplay"></div>
-      <div>Answers</div>
-        <div>
+      <h1 id="gameTitle">The Impossible Javascript Quiz</h1>
+      <button id="start">Start New Game</button><div id="questionDisplay"></div>
+        <div id="answers">
           <button id="answerA"></button>
           <button id="answerB"></button>
           <button id="answerC"></button>

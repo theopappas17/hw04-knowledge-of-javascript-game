@@ -8,11 +8,14 @@
 //give opportunity to add initials to document score
 
 //Global Variables
-arrayIndex = 0;
+// let arrayIndex = Math.floor(Math.random()*6);
+let arrayIndex = 0;
 let timer;
-let timeLeft = 60;
+let timeLeft = 15;
 
+//Interactions
 let startGame = document.querySelector("#start");
+startGame.addEventListener("click", jsChallenge);
 
 const questions = [
   {
@@ -48,30 +51,30 @@ const questions = [
   {
     question: "What is the BOM?",
     answers: {
-      a: "another name for the DOM",
-      b: "an important part of JavaScript",
-      c: "an important part of ECMAScript",
-      d: "b and c"
+      a: "a: another name for the DOM",
+      b: "b: an important part of JavaScript",
+      c: "c: an important part of ECMAScript",
+      d: "d: b and c"
     },
     correctAnswer: "b",
   },
   {
     question: "What is ECMAScript?",
     answers: {
-      a: "another name for JavaScript",
-      b: "a standard maintained by ECMA International",
-      c: "a scripting language",
-      d: "b and c"
+      a: "a: another name for JavaScript",
+      b: "b: a standard maintained by ECMA International",
+      c: "c: a scripting language",
+      d: "d: b and c"
     },
     correctAnswer: "d",
   },
   {
     question: "What variable declarations are allowed in JavaScript?",
     answers: {
-      a: "var",
-      b: "const",
-      c: "let",
-      d: "a, b, and c"
+      a: "a: var",
+      b: "b: const",
+      c: "c: let",
+      d: "d: a, b, and c"
     },
     correctAnswer: "d"
   }
@@ -79,7 +82,7 @@ const questions = [
 
 //Functions
 //game function
-var clock = function () {
+function clock() {
   document.getElementById("timerDisplay").innerHTML = timeLeft;
   timeLeft--;
   if (timeLeft < 0) {
@@ -94,9 +97,7 @@ function jsChallenge() {
   manageQuestions();
   generateAnswers();
 }
-//Nested Functions
 
-//question generator function
 function manageQuestions() {
   document.getElementById("questionDisplay").innerHTML = questions[arrayIndex].question;
 }
@@ -125,5 +126,4 @@ function generateAnswers() {
 }
 
 
-//Interactions
-startGame.addEventListener("click", jsChallenge);
+
