@@ -11,7 +11,7 @@
 // let arrayIndex = Math.floor(Math.random()*6);
 let arrayIndex = 0;
 let timer;
-let timeLeft = 15;
+let timeLeft = 10;
 
 //Interactions with the DOM
 let answerA = document.getElementById("answerA");
@@ -37,7 +37,7 @@ function jsChallenge() {
   startGame.style.display = 'none';
   timer = setInterval(clock, 1000);
   manageQuestions();
-  generateAnswers();
+  answersHandler();
 };
 
 function manageQuestions() {
@@ -51,16 +51,16 @@ function generateIndex() {
   //if arrayIndex > questions.length then endQuiz()
   arrayIndex++;
   manageQuestions();
-  generateAnswers();
+  answersHandler();
 };
 
-function generateAnswers() {
-  console.log(questions[arrayIndex].answers)
+function answersHandler() {
   answerA.innerText = questions[arrayIndex].answers.a;
   answerB.innerText = questions[arrayIndex].answers.b;
   answerC.innerText = questions[arrayIndex].answers.c;
   answerD.innerText = questions[arrayIndex].answers.d;
   answers.onclick = generateIndex; 
+  answers.addEventListener('click', (e) => console.log(e.target));
 };
 
 //Question Object
