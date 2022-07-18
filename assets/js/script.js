@@ -8,8 +8,8 @@
 //give opportunity to add initials to document score
 
 //Global Variables
-// let arrayIndex = Math.floor(Math.random()*6);
-let arrayIndex = 0;
+let arrayIndex;
+let indexArray = [];
 let timer;
 let timeLeft = 10;
 
@@ -35,7 +35,11 @@ function clock() {
 
 function jsChallenge() {
   startGame.style.display = 'none';
+  answers.style.display = 'flex';
+  questionDisplay.style.display = 'flex';
   timer = setInterval(clock, 1000);
+  arrayIndex = Math.floor(Math.random()*6);
+  indexArray.push(arrayIndex);
   manageQuestions();
   answersHandler();
 };
@@ -49,7 +53,15 @@ function generateIndex() {
   //if correct update score
   //if incorrect decrease time
   //if arrayIndex > questions.length then endQuiz()
-  arrayIndex++;
+  if (indexArray.length === questions.length) {
+    endQuiz();
+    return;
+  }
+  arrayIndex = Math.floor(Math.random()*6);
+  while (indexArray.includes(arrayIndex)) {
+  arrayIndex = Math.floor(Math.random()*6);
+ } 
+  indexArray.push(arrayIndex);
   manageQuestions();
   answersHandler();
 };
@@ -60,8 +72,9 @@ function answersHandler() {
   answerC.innerText = questions[arrayIndex].answers.c;
   answerD.innerText = questions[arrayIndex].answers.d;
   answers.onclick = generateIndex; 
-  answers.addEventListener('click', (e) => console.log(e.target));
 };
+
+answers.addEventListener('click', (e) => console.log(e.target));
 
 //Question Object
 const questions = [
