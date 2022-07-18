@@ -18,6 +18,7 @@ let answerA = document.getElementById("answerA");
 let answerB = document.getElementById("answerB");
 let answerC = document.getElementById("answerC");
 let answerD = document.getElementById("answerD");
+let answers = document.getElementById("answers");
 let startGame = document.querySelector("#start");
 let docDisplay = document.querySelector("#questionDisplay");
 startGame.addEventListener("click", jsChallenge);
@@ -37,11 +38,11 @@ function jsChallenge() {
   timer = setInterval(clock, 1000);
   manageQuestions();
   generateAnswers();
-}
+};
 
 function manageQuestions() {
   docDisplay.innerHTML = questions[arrayIndex].question;
-}
+};
 
 function generateIndex() {
   //check if answer is correct
@@ -51,19 +52,16 @@ function generateIndex() {
   arrayIndex++;
   manageQuestions();
   generateAnswers();
-}
+};
 
 function generateAnswers() {
   console.log(questions[arrayIndex].answers)
   answerA.innerText = questions[arrayIndex].answers.a;
-  answerA.onclick = generateIndex;
   answerB.innerText = questions[arrayIndex].answers.b;
-  answerB.onclick = generateIndex;
   answerC.innerText = questions[arrayIndex].answers.c;
-  answerC.onclick = generateIndex;
   answerD.innerText = questions[arrayIndex].answers.d;
-  answerD.onclick = generateIndex;
-}
+  answers.onclick = generateIndex; 
+};
 
 //Question Object
 const questions = [
