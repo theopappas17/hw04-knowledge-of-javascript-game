@@ -6,6 +6,7 @@
 //if all questions are answered or timer = 0, end game
 //present quiz grade
 //give opportunity to add initials to document score
+
 //Global Variables
 // let arrayIndex = Math.floor(Math.random()*6);
 let arrayIndex = 0;
@@ -22,7 +23,6 @@ let docDisplay = document.querySelector("#questionDisplay");
 startGame.addEventListener("click", jsChallenge);
 
 //Functions
-//game function
 function clock() {
   document.getElementById("timerDisplay").innerHTML = timeLeft;
   timeLeft--;
@@ -30,7 +30,6 @@ function clock() {
     clearInterval(timer);
     //end quiz function to display last page with stats.
   }
-  
  };
 
 function jsChallenge() {
