@@ -6,21 +6,67 @@
 //if all questions are answered or timer = 0, end game
 //present quiz grade
 //give opportunity to add initials to document score
-
 //Global Variables
 // let arrayIndex = Math.floor(Math.random()*6);
 let arrayIndex = 0;
 let timer;
 let timeLeft = 15;
 
-//Interactions
+//Interactions with the DOM
 let answerA = document.getElementById("answerA");
 let answerB = document.getElementById("answerB");
 let answerC = document.getElementById("answerC");
 let answerD = document.getElementById("answerD");
 let startGame = document.querySelector("#start");
+let docDisplay = document.querySelector("#questionDisplay");
 startGame.addEventListener("click", jsChallenge);
 
+//Functions
+//game function
+function clock() {
+  document.getElementById("timerDisplay").innerHTML = timeLeft;
+  timeLeft--;
+  if (timeLeft < 0) {
+    clearInterval(timer);
+    //end quiz function to display last page with stats.
+  }
+  
+ };
+
+function jsChallenge() {
+  startGame.style.display = 'none';
+  timer = setInterval(clock, 1000);
+  manageQuestions();
+  generateAnswers();
+}
+
+function manageQuestions() {
+  docDisplay.innerHTML = questions[arrayIndex].question;
+}
+
+function generateIndex() {
+  //check if answer is correct
+  //if correct update score
+  //if incorrect decrease time
+  //if arrayIndex > questions.length then endQuiz()
+  arrayIndex++;
+  manageQuestions();
+  generateAnswers();
+}
+
+function generateAnswers() {
+  console.log(questions[arrayIndex].answers)
+  answerA.innerText = questions[arrayIndex].answers.a;
+  answerA.onclick = generateIndex;
+  answerB.innerText = questions[arrayIndex].answers.b;
+  answerB.onclick = generateIndex;
+  answerC.innerText = questions[arrayIndex].answers.c;
+  answerC.onclick = generateIndex;
+  answerD.innerText = questions[arrayIndex].answers.d;
+  answerD.onclick = generateIndex;
+}
+
+//Question Object
 const questions = [
   {
     question: "What can you do with JavaScript?",
@@ -83,48 +129,3 @@ const questions = [
     correctAnswer: "d"
   }
 ];
-
-//Functions
-//game function
-function clock() {
-  document.getElementById("timerDisplay").innerHTML = timeLeft;
-  timeLeft--;
-  if (timeLeft < 0) {
-    clearInterval(timer);
-    //end quiz function to display last page with stats.
-  }
- };
-
-function jsChallenge() {
-  startGame.style.display = 'none';
-  timer = setInterval(clock, 1000);
-  manageQuestions();
-  generateAnswers();
-}
-
-function manageQuestions() {
-  document.getElementById("questionDisplay").innerHTML = questions[arrayIndex].question;
-}
-
-function generateIndex() {
-  //check if answer is correct
-  //if correct update score
-  //if incorrect decrease time
-  //if arrayIndex > questions.length then endQuiz()
-  arrayIndex++;
-  manageQuestions();
-  generateAnswers();
-}
-
-function generateAnswers() {
-  console.log(questions[arrayIndex].answers.a)
-  console.log(questions[arrayIndex].answers)
-  answerA.innerText = questions[arrayIndex].answers.a;
-  answerA.onclick = generateIndex;
-  answerB.innerText = questions[arrayIndex].answers.b;
-  answerB.onclick = generateIndex;
-  answerC.innerText = questions[arrayIndex].answers.c;
-  answerC.onclick = generateIndex;
-  answerD.innerText = questions[arrayIndex].answers.d;
-  answerD.onclick = generateIndex;
-}
