@@ -12,16 +12,18 @@ let arrayIndex;
 let indexArray = [];
 let timer;
 let timeLeft = 10;
+let score = 0;
 
 //Interactions with the DOM
 let answerA = document.getElementById("answerA");
 let answerB = document.getElementById("answerB");
 let answerC = document.getElementById("answerC");
 let answerD = document.getElementById("answerD");
-let answers = document.getElementById("answers");
 let startGame = document.querySelector("#start");
+// let answerEvent = answers.addEventListener('click', (e) => console.log(e.target));
 let docDisplay = document.querySelector("#questionDisplay");
 startGame.addEventListener("click", jsChallenge);
+score = 0;
 
 //Functions
 function clock() {
@@ -42,6 +44,7 @@ function jsChallenge() {
   indexArray.push(arrayIndex);
   manageQuestions();
   answersHandler();
+  answerValidator();
 };
 
 function manageQuestions() {
@@ -64,6 +67,8 @@ function generateIndex() {
   indexArray.push(arrayIndex);
   manageQuestions();
   answersHandler();
+  answerValidator();
+  console.log(score);
 };
 
 function answersHandler() {
@@ -71,10 +76,24 @@ function answersHandler() {
   answerB.innerText = questions[arrayIndex].answers.b;
   answerC.innerText = questions[arrayIndex].answers.c;
   answerD.innerText = questions[arrayIndex].answers.d;
-  answers.onclick = generateIndex; 
+  answers.onclick = generateIndex;
 };
 
-answers.addEventListener('click', (e) => console.log(e.target));
+function answerValidator() {
+  if (arrayIndex === 0 && questions[arrayIndex].correctAnswer === 'd') {
+  score++;
+} else (arrayIndex === 1 && questions[arrayIndex].correctAnswer === 'a') {
+  score++;
+} else (arrayIndex === 2 && questions[arrayIndex].correctAnswer === 'd') {
+  score++;
+} else (arrayIndex === 3 && questions[arrayIndex].correctAnswer === 'b') {
+  score++;
+} else (arrayIndex === 4 && questions[arrayIndex].correctAnswer === 'd') {
+  score++;
+} else (arrayIndex === 5 && questions[arrayIndex].correctAnswer === 'd') {
+  score++;
+}
+}
 
 //Question Object
 const questions = [
