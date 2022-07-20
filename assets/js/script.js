@@ -21,10 +21,8 @@ let answerC = document.getElementById("answerC");
 let answerD = document.getElementById("answerD");
 let startGame = document.querySelector("#start");
 let answers = document.querySelector("#answers")
-// let answerConsol = answers.addEventListener('click', (e) => console.log(e.target));
 let docDisplay = document.querySelector("#questionDisplay");
 startGame.addEventListener("click", jsChallenge);
-score = 0;
 
 //Functions
 function clock() {
@@ -58,9 +56,9 @@ function generateIndex(event) {
   let userAnswer = event.target.innerText;
   questions[arrayIndex].correctAnswer;
   if(userAnswer === questions[arrayIndex].correctAnswer){
-    //correct
+    score++;
   }else{
-    // incorrect
+    timeLeft = timeLeft - 5;
   }
   //check if answer is correct
   //if correct update score
@@ -89,27 +87,6 @@ function answersHandler() {
   answers.onclick = generateIndex;
 };
 
-// function answerValidator(event) {
-//   if (arrayIndex === 0 && event.targ === 'answerD') {
-//   score++;
-// } 
-//     else if (arrayIndex === 1 && clicked_id === 'answerA') {
-//   score++;
-// } 
-//     else if (arrayIndex === 2 && clicked_id === 'answerD') {
-//   score++;
-// } 
-//     else if (arrayIndex === 3 && clicked_id === 'answerB') {
-//   score++;
-// } 
-//     else if (arrayIndex === 4 && clicked_id === 'answerD') {
-//   score++;
-// } 
-//     else if (arrayIndex === 5 && clicked_id === 'answerD') {
-//   score++;
-// }
-// }
-
 //Question Object
 const questions = [
   {
@@ -120,7 +97,7 @@ const questions = [
       c: "c: create website interactions",
       d: "d: all of the above",
     },
-    correctAnswer: "d",
+    correctAnswer: "d: all of the above",
   },
   {
     question: "What is the DOM?",
@@ -150,7 +127,7 @@ const questions = [
       c: "c: an important part of ECMAScript",
       d: "d: b and c"
     },
-    correctAnswer: "b",
+    correctAnswer: "b: an important part of JavaScript",
   },
   {
     question: "What is ECMAScript?",
@@ -160,7 +137,7 @@ const questions = [
       c: "c: a scripting language",
       d: "d: b and c"
     },
-    correctAnswer: "d",
+    correctAnswer: "d: b and c",
   },
   {
     question: "What variable declarations are allowed in JavaScript?",
@@ -170,6 +147,6 @@ const questions = [
       c: "c: let",
       d: "d: a, b, and c"
     },
-    correctAnswer: "d"
+    correctAnswer: "d: a, b, and c"
   }
 ];
