@@ -20,7 +20,8 @@ let answerB = document.getElementById("answerB");
 let answerC = document.getElementById("answerC");
 let answerD = document.getElementById("answerD");
 let startGame = document.querySelector("#start");
-// let answerEvent = answers.addEventListener('click', (e) => console.log(e.target));
+let answers = document.querySelector("#answers")
+// let answerConsol = answers.addEventListener('click', (e) => console.log(e.target));
 let docDisplay = document.querySelector("#questionDisplay");
 startGame.addEventListener("click", jsChallenge);
 score = 0;
@@ -44,14 +45,23 @@ function jsChallenge() {
   indexArray.push(arrayIndex);
   manageQuestions();
   answersHandler();
-  answerValidator();
+  console.log(clicked_id);
 };
 
 function manageQuestions() {
   docDisplay.innerHTML = questions[arrayIndex].question;
 };
 
-function generateIndex() {
+function generateIndex(event) {
+
+  console.log(event.target)
+  let userAnswer = event.target.innerText;
+  questions[arrayIndex].correctAnswer;
+  if(userAnswer === questions[arrayIndex].correctAnswer){
+    //correct
+  }else{
+    // incorrect
+  }
   //check if answer is correct
   //if correct update score
   //if incorrect decrease time
@@ -67,7 +77,7 @@ function generateIndex() {
   indexArray.push(arrayIndex);
   manageQuestions();
   answersHandler();
-  answerValidator();
+  // answerValidator();
   console.log(score);
 };
 
@@ -79,21 +89,26 @@ function answersHandler() {
   answers.onclick = generateIndex;
 };
 
-function answerValidator() {
-  if (arrayIndex === 0 && questions[arrayIndex].correctAnswer === 'd') {
-  score++;
-} else (arrayIndex === 1 && questions[arrayIndex].correctAnswer === 'a') {
-  score++;
-} else (arrayIndex === 2 && questions[arrayIndex].correctAnswer === 'd') {
-  score++;
-} else (arrayIndex === 3 && questions[arrayIndex].correctAnswer === 'b') {
-  score++;
-} else (arrayIndex === 4 && questions[arrayIndex].correctAnswer === 'd') {
-  score++;
-} else (arrayIndex === 5 && questions[arrayIndex].correctAnswer === 'd') {
-  score++;
-}
-}
+// function answerValidator(event) {
+//   if (arrayIndex === 0 && event.targ === 'answerD') {
+//   score++;
+// } 
+//     else if (arrayIndex === 1 && clicked_id === 'answerA') {
+//   score++;
+// } 
+//     else if (arrayIndex === 2 && clicked_id === 'answerD') {
+//   score++;
+// } 
+//     else if (arrayIndex === 3 && clicked_id === 'answerB') {
+//   score++;
+// } 
+//     else if (arrayIndex === 4 && clicked_id === 'answerD') {
+//   score++;
+// } 
+//     else if (arrayIndex === 5 && clicked_id === 'answerD') {
+//   score++;
+// }
+// }
 
 //Question Object
 const questions = [
@@ -115,7 +130,7 @@ const questions = [
       c: "c: a domain",
       d: "d: none of the above",
     },
-    correctAnswer: "a",
+    correctAnswer: "a: an API",
   },
   {
     question: "How do you access the DOM?",
@@ -125,7 +140,7 @@ const questions = [
       c: "c: using html",
       d: "d: a and b",
     },
-    correctAnswer: "d",
+    correctAnswer: "d: a and b",
   },
   {
     question: "What is the BOM?",
