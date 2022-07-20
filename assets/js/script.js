@@ -12,15 +12,16 @@ let arrayIndex;
 let indexArray = [];
 let timer;
 let timeLeft = 10;
-let score = 0;
+let score = localStorage.getItem("count");
 
 //Interactions with the DOM
 let answerA = document.getElementById("answerA");
 let answerB = document.getElementById("answerB");
 let answerC = document.getElementById("answerC");
 let answerD = document.getElementById("answerD");
+let actualScore = document.getElementById("actualScore");
 let startGame = document.querySelector("#start");
-let answers = document.querySelector("#answers")
+let answers = document.querySelector("#answers");
 let docDisplay = document.querySelector("#questionDisplay");
 startGame.addEventListener("click", jsChallenge);
 
@@ -30,7 +31,6 @@ function clock() {
   timeLeft--;
   if (timeLeft < 0) {
     clearInterval(timer);
-    //end quiz function to display last page with stats.
   }
  };
 
@@ -43,7 +43,6 @@ function jsChallenge() {
   indexArray.push(arrayIndex);
   manageQuestions();
   answersHandler();
-  console.log(clicked_id);
 };
 
 function manageQuestions() {
@@ -51,20 +50,15 @@ function manageQuestions() {
 };
 
 function generateIndex(event) {
-
-  console.log(event.target)
   let userAnswer = event.target.innerText;
   questions[arrayIndex].correctAnswer;
-  if(userAnswer === questions[arrayIndex].correctAnswer){
+  if (userAnswer === questions[arrayIndex].correctAnswer) {
     score++;
-  }else{
+  } else if (userAnswer !== questions[arrayIndex].correctAnswer) {
     timeLeft = timeLeft - 5;
   }
-  //check if answer is correct
-  //if correct update score
-  //if incorrect decrease time
   //if arrayIndex > questions.length then endQuiz()
-  if (indexArray.length === questions.length) {
+  if (indexArray.length === questions.length || timeLeft <= 0) {
     endQuiz();
     return;
   }
@@ -75,8 +69,6 @@ function generateIndex(event) {
   indexArray.push(arrayIndex);
   manageQuestions();
   answersHandler();
-  // answerValidator();
-  console.log(score);
 };
 
 function answersHandler() {
@@ -86,6 +78,15 @@ function answersHandler() {
   answerD.innerText = questions[arrayIndex].answers.d;
   answers.onclick = generateIndex;
 };
+
+function endQuiz() {
+   //end quiz function to display last page with stats.
+  console.log(score);
+  questionDisplay.style.display = 'none';
+  answers.style.display = 'none';
+  actualScore.innerHTML = score;
+  localStorage.setItem("score", score);
+}
 
 //Question Object
 const questions = [
