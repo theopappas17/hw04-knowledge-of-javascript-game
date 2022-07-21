@@ -1,1 +1,5 @@
 # bootcamp-module-4-challenge
+I spent a lot of time on this challenge to insert functionality that was not necessarily necessary, e.g. randomized questions. Given time constraints, I am not able to work out all the bugs or fulfill every single requirement. I prioritized my feature additions poorly.
+Nevertheless, you have a basic game that has 6 questions on JavaScript that must be answered in 10 seconds. If you get a question right, your score increases by one, so a high score is currently 6. However, if you get a question wrong, 5 seconds are deducted from the time left to complete the game. Hence, the "impossible." It's not impossible. Just a bit frustrating given the constraints.
+The github repo url is https://github.com/theopappas17/knowledge-of-javascript-game.git .
+The deployed page url is https://theopappas17.github.io/knowledge-of-javascript-game/ .
