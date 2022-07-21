@@ -56,8 +56,13 @@ main {
 }
 
 #gameOver {
+  display: none;
   font-size: 50px;
   color: red;
+}
+
+#yourScore {
+  display: none;
 }
 
 #questionDisplay {

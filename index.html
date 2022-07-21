@@ -4,20 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaScript Fundamentals Quiz</title>
+    <title>Impossible JavaScript Quiz</title>
+     <!-- Import Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
+    <!-- The header -->
     <header>
     <span id="timeLeft">Time Left<span id="timerDisplay"></span></span>
     <button id="highScores">Scores<span id="scoreDisplay"></span></button>
     </header>
     <main>
+      <!-- h1 and h2 are always displayed -->
       <h1 id="gameTitle">The Impossible Javascript Quiz</h1>
       <h2>Just try and get all questions right in the alloted time</h2>
+      <!-- display of button with id start and button children to div id answers are controlled by JavaScript -->
       <button id="start">Start New Game</button><div id="questionDisplay"></div>
         <div id="answers">
           <button id="answerA"></button>
@@ -25,6 +29,7 @@
           <button id="answerC"></button>
           <button id="answerD"></button>
         </div>
+        <!-- Display of Game Over also controlled by JavaScript -->
         <div id="gameOver">GAME OVER</div>
       <div id="yourScore">Your Score is <span id="actualScore"></span></div>
     </main>
